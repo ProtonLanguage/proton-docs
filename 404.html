@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8"/>
+  <script>
+    // GitHub Pages 404 redirect trick
+    // Converts /getting-started/syntax/ into /?p=getting-started/syntax/
+    // Then index.html reads it and restores the real URL via history.pushState
+    var path = window.location.pathname;
+    var search = window.location.search;
+    var hash = window.location.hash;
+    if (path !== '/') {
+      window.location.replace(
+        window.location.origin + '/?p=' + encodeURIComponent(path) + (search ? '&' + search.slice(1) : '') + hash
+      );
+    }
+  </script>
+</head>
+<body></body>
+</html>
